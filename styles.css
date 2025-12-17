@@ -134,6 +134,32 @@ body {
   white-space: nowrap;
 }
 
+/* Hero CTA hover animation */
+.hero-actions .btn {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  will-change: transform;
+}
+
+.hero-actions .btn:hover {
+  transform: scale(1.04);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+@media (hover: hover) {
+  .hero-actions .btn:hover {
+    transform: scale(1.04);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  }
+
+  .btn-primary:hover {
+    background: #b91f1f;
+  }
+
+  .sticky-cta:hover {
+    background: #b91f1f;
+  }
+
+}
 
 /* Hero image */
 .hero-image img {
@@ -218,6 +244,7 @@ body {
   color: #fff;
   line-height: 1.1;
   padding: 6px 0;
+  cursor: pointer;
 }
 
 /* Subtle brand accent underline */
@@ -504,6 +531,19 @@ body {
   transform: translateY(8px);
 }
 
+/* Sticky CTA hover animation */
+.sticky-cta {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  will-change: transform;
+}
+
+@media (hover: hover) {
+  .sticky-cta:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+  }
+}
+
 /* Footer (space for sticky CTA) */
 .footer {
   background: var(--green);
@@ -580,6 +620,12 @@ body {
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.hero-actions .btn:active,
+.sticky-cta:active {
+  transform: scale(0.97);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
 }
 
 .section {
