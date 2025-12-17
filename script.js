@@ -3,7 +3,6 @@ document.getElementById('hamburger')?.addEventListener('click', () => {
   document.getElementById('nav-links')?.classList.toggle('show');
 });
 
-
 /* Smooth scroll with forced navbar reveal + lock */
 let navLocked = false;
 
@@ -22,13 +21,13 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
     // Force navbar visible & lock it
     navLocked = true;
-    navbar.classList.remove('hide');
+    navbar?.classList.remove('hide');
 
     // Close mobile menu
-    if (navMenu) navMenu.classList.remove('show');
+    navMenu?.classList.remove('show');
 
     requestAnimationFrame(() => {
-      const navHeight = navbar.offsetHeight;
+      const navHeight = navbar?.offsetHeight || 0;
 
       const y =
         target.getBoundingClientRect().top +
@@ -44,10 +43,9 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     // Unlock navbar after scroll finishes
     setTimeout(() => {
       navLocked = false;
-    }, 600);
+    }, 700);
   });
 });
-
 
 /* Slider (fade) */
 const slides = document.querySelectorAll('.slider img');
@@ -56,6 +54,7 @@ const nextBtn = document.querySelector('.next');
 const prevBtn = document.querySelector('.prev');
 
 function showSlide(nextIndex) {
+  if (!slides.length) return;
   slides[index].classList.remove('active');
   index = (nextIndex + slides.length) % slides.length;
   slides[index].classList.add('active');
@@ -65,7 +64,6 @@ if (nextBtn && prevBtn && slides.length) {
   nextBtn.addEventListener('click', () => showSlide(index + 1));
   prevBtn.addEventListener('click', () => showSlide(index - 1));
 }
-
 
 /* Sticky CTA hide (hero + contact) */
 const sticky = document.getElementById('stickyCta');
@@ -87,7 +85,6 @@ if (sticky && hero && contact) {
   observer.observe(contact);
 }
 
-
 /* Auto-close mobile nav on link click */
 document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', () => {
@@ -95,44 +92,48 @@ document.querySelectorAll('.nav-links a').forEach(link => {
   });
 });
 
-
 /* Scroll to top when clicking nav title */
 const navTitle = document.getElementById('navTitle');
-
-if (navTitle) {
-  navTitle.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+navTitle?.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
   });
-}
+});
 
-// Navbar behaviour on scroll (shrink + mobile hide/show)
+/* Navbar behaviour on scroll (shrink + hide/show) */
 let lastScrollY = window.scrollY;
 const navbar = document.querySelector('.navbar');
+const topBar = document.querySelector('.top-bar');
 
 window.addEventListener('scroll', () => {
   const currentScrollY = window.scrollY;
 
-  // Shrink navbar only (NO title change)
+  // Shrink navbar
   if (currentScrollY > 40) {
-    navbar.classList.add('scrolled');
+    navbar?.classList.add('scrolled');
   } else {
-    navbar.classList.remove('scrolled');
+    navbar?.classList.remove('scrolled');
   }
 
-  // Mobile hide-on-scroll (respect lock)
-  if (window.innerWidth <= 760 && !navLocked) {
-    if (currentScrollY > lastScrollY && currentScrollY > 100) {
-      navbar.classList.add('hide');
+  // Hide/show on scroll direction (mobile + desktop), respect navLocked
+  if (!navLocked) {
+    const scrollingDown = currentScrollY > lastScrollY;
+    const pastThreshold = currentScrollY > 100;
+
+    if (scrollingDown && pastThreshold) {
+      navbar?.classList.add('hide');
+      // Top bar only exists on desktop (mobile usually hidden via CSS)
+      if (window.innerWidth > 760) topBar?.classList.add('hide');
     } else {
-      navbar.classList.remove('hide');
+      navbar?.classList.remove('hide');
+      topBar?.classList.remove('hide');
     }
   } else {
-    navbar.classList.remove('hide');
+    // If locked, keep visible
+    navbar?.classList.remove('hide');
+    topBar?.classList.remove('hide');
   }
 
   lastScrollY = currentScrollY;
 });
-

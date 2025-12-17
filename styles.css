@@ -23,12 +23,16 @@ body {
 }
 
 @media (max-width: 760px) {
-  body {
-    padding-top: 52px;
+  .top-bar {
+    display: none !important;
   }
 
   .navbar {
-    padding-bottom: 4px;
+    top: 0 !important;
+  }
+
+  body {
+    padding-top: 64px !important;
   }
 }
 
@@ -199,10 +203,56 @@ body {
   }
 }
 
+/* Top address bar */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  background: #3f4c2f;
+  color: #fff;
+  font-size: 0.85rem;
+  z-index: 1300;
+  transition: transform 0.3s ease;
+}
+
+.top-bar.hide {
+  transform: translateY(-100%);
+}
+
+.top-bar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 18px;
+}
+
+.top-bar-left {
+  display: flex;
+  gap: 16px;
+}
+
+.top-bar-left a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.top-bar svg {
+  width: 16px;
+  height: 16px;
+  fill: #fff;
+}
+
+
 /* Navbar */
 .navbar {
   position: fixed;
-  top: 0;
+  top: 32px;
   left: 0;
   right: 0;
   background: linear-gradient(180deg, #55663f 0%, #4f5f3a 100%);
@@ -211,8 +261,9 @@ body {
   transition: transform 0.3s ease, box-shadow 0.25s ease, padding 0.25s ease;
 }
 
+
 .navbar.hide {
-  transform: translateY(-100%);
+  transform: translateY(-32px);
 }
 
 .navbar.scrolled {
