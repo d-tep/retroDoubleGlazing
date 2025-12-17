@@ -13,8 +13,16 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     const target = document.querySelector(href);
     if (!target) return;
 
-    const navHeight = document.querySelector('.navbar').offsetHeight;
-    const y = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 10;
+    const navbar = document.querySelector('.navbar');
+    const navHeight = navbar.offsetHeight;
+
+    const mobileOffset = window.innerWidth <= 760 ? 6 : 12;
+
+    const y =
+      target.getBoundingClientRect().top +
+      window.pageYOffset -
+      navHeight -
+      mobileOffset;
 
     window.scrollTo({ top: y, behavior: 'smooth' });
     document.getElementById('nav-links').classList.remove('show');
@@ -68,16 +76,6 @@ navLinks.forEach(link => {
   });
 });
 
-// Shrink navbar on scroll
-const navbar = document.querySelector('.navbar');
-
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 40) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
-  }
-});
 
 // Scroll to top when clicking nav title
 const navTitle = document.getElementById('navTitle');
@@ -90,3 +88,27 @@ if (navTitle) {
     });
   });
 }
+
+// Hide navbar on scroll down (mobile only), show on scroll up
+let lastScrollY = window.scrollY;
+
+window.addEventListener('scroll', () => {
+  const currentScrollY = window.scrollY;
+  const navbar = document.querySelector('.navbar');
+
+  // Only apply on mobile
+  if (window.innerWidth <= 760) {
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      // Scrolling down
+      navbar.classList.add('hide');
+    } else {
+      // Scrolling up
+      navbar.classList.remove('hide');
+    }
+  } else {
+    // Ensure navbar is always visible on desktop
+    navbar.classList.remove('hide');
+  }
+
+  lastScrollY = currentScrollY;
+});

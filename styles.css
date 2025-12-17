@@ -22,6 +22,16 @@ body {
   padding-top: 64px;
 }
 
+@media (max-width: 760px) {
+  body {
+    padding-top: 52px;
+  }
+
+  .navbar {
+    padding-bottom: 4px;
+  }
+}
+
 .container {
   max-width: 1200px;
   margin: auto;
@@ -132,10 +142,6 @@ body {
   box-shadow: 0 18px 40px rgba(0, 0, 0, .12);
 }
 
-.hero-rating {
-  margin-bottom: 18px;
-}
-
 .hero-logo-wide {
   max-width: 200px;
   width: 100%;
@@ -240,6 +246,14 @@ body {
   font-size: 1.05rem;
 }
 
+/* Mobile hide-on-scroll navbar */
+.navbar {
+  transition: transform 0.3s ease, box-shadow 0.25s ease;
+}
+
+.navbar.hide {
+  transform: translateY(-100%);
+}
 
 
 /* Push hamburger right */
@@ -566,8 +580,6 @@ body {
     margin-left: auto;
     margin-right: auto;
   }
-
-
 }
 
 .section {
