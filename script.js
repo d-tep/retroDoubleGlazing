@@ -7,27 +7,36 @@ document.getElementById('hamburger').addEventListener('click', () => {
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', function (e) {
     const href = this.getAttribute('href');
-    if (!href || !href.startsWith('#')) return;
+    if (!href || href === '#') return;
 
-    e.preventDefault();
     const target = document.querySelector(href);
     if (!target) return;
 
+    e.preventDefault();
+
     const navbar = document.querySelector('.navbar');
-    const navHeight = navbar.offsetHeight;
+    const navMenu = document.getElementById('nav-links');
 
-    const mobileOffset = window.innerWidth <= 760 ? 6 : 12;
+    navbar.classList.remove('hide');
 
-    const y =
-      target.getBoundingClientRect().top +
-      window.pageYOffset -
-      navHeight -
-      mobileOffset;
+    if (navMenu) navMenu.classList.remove('show');
 
-    window.scrollTo({ top: y, behavior: 'smooth' });
-    document.getElementById('nav-links').classList.remove('show');
+    requestAnimationFrame(() => {
+      const navHeight = navbar.offsetHeight;
+
+      const y =
+        target.getBoundingClientRect().top +
+        window.pageYOffset -
+        navHeight;
+
+      window.scrollTo({
+        top: y,
+        behavior: 'smooth'
+      });
+    });
   });
 });
+
 
 // Slider fade
 const slides = document.querySelectorAll('.slider img');
