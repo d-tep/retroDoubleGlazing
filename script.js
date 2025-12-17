@@ -108,37 +108,18 @@ if (navTitle) {
   });
 }
 
-
-/* Nav title cross-fade helper */
-function swapNavTitle(text) {
-  if (!navTitle || navTitle.textContent === text) return;
-
-  navTitle.classList.add('fade-out');
-
-  setTimeout(() => {
-    navTitle.textContent = text;
-    navTitle.classList.remove('fade-out');
-  }, 180);
-}
-
-
-/* Navbar scroll behaviour
-   - shrink
-   - title swap
-   - mobile hide/show */
+// Navbar behaviour on scroll (shrink + mobile hide/show)
 let lastScrollY = window.scrollY;
 const navbar = document.querySelector('.navbar');
 
 window.addEventListener('scroll', () => {
   const currentScrollY = window.scrollY;
 
-  // Shrink navbar + swap title
+  // Shrink navbar only (NO title change)
   if (currentScrollY > 40) {
     navbar.classList.add('scrolled');
-    swapNavTitle(navTitle?.dataset.short);
   } else {
     navbar.classList.remove('scrolled');
-    swapNavTitle(navTitle?.dataset.full);
   }
 
   // Mobile hide-on-scroll (respect lock)
@@ -154,3 +135,4 @@ window.addEventListener('scroll', () => {
 
   lastScrollY = currentScrollY;
 });
+
