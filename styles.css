@@ -1,13 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap');
 
+
 :root {
-  --green: #4f5f3a;
-  --orange: #f0a12b;
-  --red: #d62828;
-  --ink: #222;
-  --muted: #5a5a5a;
-  --alt: #f5f7fa;
+  --green: #3e4f3b;
+  --orange: #e19a2c;
+  --red: #c53a2f;
+
+  --ink: #1f1f1f;
+  --muted: #6b6b6b;
+  --accent: #ffffff1f;
+
+  --alt: #f3ead7;
+  --charcoal: #2f3433;
+  --gold: #c99a55;
 }
+
 
 * {
   box-sizing: border-box;
@@ -17,10 +24,18 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
+  background: var(--alt);
   color: var(--ink);
-  line-height: 1.6;
-  padding-top: 64px;
+  padding-top: 96px;
 }
+
+.section-title,
+.hero-heading,
+.nav-title {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.04em;
+}
+
 
 @media (max-width: 760px) {
   .top-bar {
@@ -66,7 +81,7 @@ body {
 /* HERO SPLIT */
 .hero-split {
   padding: 80px 0 90px;
-  background: #fff;
+  background: var(--alt);
 }
 
 .hero-grid {
@@ -121,6 +136,11 @@ body {
   background: var(--red);
   color: #fff;
 }
+
+.btn-primary:hover {
+  background: #a82f27;
+}
+
 
 .btn-secondary {
   background: #f1f1f1;
@@ -214,7 +234,7 @@ body {
   left: 0;
   right: 0;
   height: 32px;
-  background: #3f4c2f;
+  background: var(--charcoal);
   color: #fff;
   font-size: 0.85rem;
   z-index: 1300;
@@ -259,12 +279,14 @@ body {
   top: 32px;
   left: 0;
   right: 0;
-  background: linear-gradient(180deg, #55663f 0%, #4f5f3a 100%);
+  background: linear-gradient(180deg,
+      var(--green) 0%,
+      #2f3a2c 100%);
+  border-bottom: 4px solid #789b72;
   z-index: 1200;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
   transition: transform 0.3s ease, box-shadow 0.25s ease, padding 0.25s ease;
 }
-
 
 .navbar.hide {
   transform: translateY(-32px);
@@ -315,7 +337,7 @@ body {
   display: block;
   width: 42px;
   height: 3px;
-  background: var(--orange);
+  background: var(--gold);
   margin-top: 8px;
   border-radius: 2px;
   transition: width 0.25s ease;
@@ -351,10 +373,15 @@ body {
 .section {
   padding: 72px 0;
   scroll-margin-top: 120px;
+  background: var(--alt);
+  border-top: 4px solid var(--accent);
+
 }
 
 .section.alt {
-  background: var(--alt);
+  background: #f3efe69f;
+  border-top: 4px solid var(--accent);
+
 }
 
 /* Cards */
@@ -586,6 +613,7 @@ body {
   color: #fff;
   padding: 44px 0;
   text-align: center;
+  border-top: 4px solid var(--gold);
 }
 
 .footer a {
