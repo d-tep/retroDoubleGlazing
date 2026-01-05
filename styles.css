@@ -385,7 +385,7 @@ textarea:focus-visible,
 .hero-scroll {
   position: absolute;
   left: 50%;
-  bottom: 18px;
+  bottom: 10px;
   transform: translateX(-50%);
   width: 44px;
   height: 44px;
@@ -701,7 +701,7 @@ textarea:focus-visible,
         rgba(14, 42, 58, 0.78) 0%,
         rgba(14, 42, 58, 0.58) 52%,
         rgba(14, 42, 58, 0.22) 100%),
-      url(./images/heroBanner.png);
+      url(./images/heroBannerImage.png);
     background-size: cover;
   }
 
@@ -775,6 +775,24 @@ textarea:focus-visible,
   .hero-banner {
     background-position: 15% 0%;
     min-height: 60vh;
+  }
+
+  .hero-banner {
+    justify-content: center;
+  }
+
+  .hero-banner-content {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-actions .btn {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
