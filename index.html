@@ -253,12 +253,19 @@
             <h2 class="section-title">Get a Free Quote</h2>
             <p class="section-lead">Tell us a bit about your windows and we'll get back to you.</p>
 
-            <form class="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Email Address" required>
-                <input type="tel" placeholder="Phone Number">
-                <textarea rows="6"
-                    placeholder="Tell us about your project (window type, number of windows, suburb, etc.)"></textarea>
+            <form class="contact-form" action="https://formspree.io/f/yourFormID" method="POST">
+                <!-- Honeypot trap, need to Sign up at Formspree → create a new form → get your unique form endpoint. Update form’s action and input fields -->
+                <input type="text" name="_gotcha" style="display:none">
+
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
+                <input type="tel" name="phone" placeholder="Phone Number">
+                <textarea name="message" rows="6" placeholder="Tell us about your project..." required></textarea>
+
+                <!-- Google reCAPTCHA widget, need to Get reCAPTCHA Site Keys Go to https://www.google.com/recaptcha/admin/create -->
+                <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+
+                <input type="hidden" name="_captcha" value="false">
                 <button type="submit">Send Enquiry</button>
             </form>
         </div>
@@ -283,6 +290,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 
 </html>
