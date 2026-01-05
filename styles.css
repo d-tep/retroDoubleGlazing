@@ -270,7 +270,7 @@ textarea:focus-visible,
       rgba(14, 42, 58, 0.52) 38%,
       rgba(14, 42, 58, 0.18) 62%,
       rgba(14, 42, 58, 0.05) 100%),
-    url(./images/heroBanner.png);
+    url(./images/heroBannerImage.png);
   background-size: cover;
   background-position: 75% 15%;
   background-repeat: no-repeat;
