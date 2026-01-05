@@ -209,11 +209,15 @@ textarea:focus-visible,
 
 .nav-title {
   font-weight: 400;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   color: var(--white);
   line-height: 1.05;
   cursor: pointer;
   user-select: none;
+}
+
+.nav-accent {
+  color: var(--yellow);
 }
 
 .nav-title::after {
@@ -261,16 +265,14 @@ textarea:focus-visible,
   align-items: center;
   padding: 56px 0 70px;
   background:
-    linear-gradient(
-      90deg,
+    linear-gradient(90deg,
       rgba(14, 42, 58, 0.72) 0%,
       rgba(14, 42, 58, 0.52) 38%,
       rgba(14, 42, 58, 0.18) 62%,
-      rgba(14, 42, 58, 0.05) 100%
-    ),
+      rgba(14, 42, 58, 0.05) 100%),
     url(./images/heroBanner.png);
   background-size: cover;
-  background-position: center right;
+  background-position: 75% 15%;
   background-repeat: no-repeat;
   border-bottom: 4px solid rgba(242, 200, 75, 0.75);
 }
@@ -563,8 +565,13 @@ textarea:focus-visible,
   border-radius: 12px;
 }
 
-.slider .prev { left: 12px; }
-.slider .next { right: 12px; }
+.slider .prev {
+  left: 12px;
+}
+
+.slider .next {
+  right: 12px;
+}
 
 /* Map */
 .map-wrap {
@@ -690,12 +697,10 @@ textarea:focus-visible,
     background-position: center;
     padding: 40px 0 64px;
     background:
-      linear-gradient(
-        180deg,
+      linear-gradient(180deg,
         rgba(14, 42, 58, 0.78) 0%,
         rgba(14, 42, 58, 0.58) 52%,
-        rgba(14, 42, 58, 0.22) 100%
-      ),
+        rgba(14, 42, 58, 0.22) 100%),
       url(./images/heroBanner.png);
     background-size: cover;
   }
@@ -720,7 +725,7 @@ textarea:focus-visible,
   }
 
   .navbar.hide {
-      transform: translateY(-100%) !important;
+    transform: translateY(-100%) !important;
   }
 
   body {
@@ -753,7 +758,7 @@ textarea:focus-visible,
     font-size: 1rem;
   }
 
-    .hero-brand {
+  .hero-brand {
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -765,6 +770,11 @@ textarea:focus-visible,
 
   .hero-banner-title {
     align-items: center;
+  }
+
+  .hero-banner {
+    background-position: 15% 0%;
+    min-height: 60vh;
   }
 }
 
