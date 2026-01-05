@@ -419,8 +419,6 @@ textarea:focus-visible,
 
 .section.alt {
   background: linear-gradient(180deg, #ffffff 0%, #f5f9fd 100%);
-  border-top: 4px solid rgba(31, 143, 209, 0.18);
-  border-bottom: 4px solid rgba(242, 200, 75, 0.18);
 }
 
 /* Cards */
