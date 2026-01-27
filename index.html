@@ -137,7 +137,7 @@
                 </div>
 
                 <div class="card">
-                    <img src="./images/baAssets/rot-stage0.png" alt="Rot repair" loading="lazy">
+                    <img src="./images/baAssets/rot-stage0.jpg" alt="Rot repair" loading="lazy">
                     <div class="card-body">
                         <h3>Rot Repair</h3>
                         <p>Repair rotted timber in existing window frames.</p>
@@ -170,7 +170,7 @@
                 </div>
 
                 <div class="card">
-                    <img src="./images/baAssets/steamworks-building.jpg" alt="Historical Restoration" loading="lazy">
+                    <img src="./images/gallery/steamworks-building.jpg" alt="Historical Restoration" loading="lazy">
                     <div class="card-body">
                         <h3>Historical Restoration</h3>
                         <p>Period window and other traditional joinery work.</p>
@@ -259,13 +259,36 @@
             <p class="section-lead">Before and after views showing the repair and restoration of existing timber window
                 frames.</p>
 
-            <div class="slider" aria-label="Before and after slider">
-                <img src="./images/baAssets/rot-stage0.png" class="active" alt="Before retrofit" loading="lazy">
-                <img src="./images/baAssets/rot-stage1.jpg" alt="Mid retrofit" loading="lazy">
-                <img src="./images/baAssets/rot-stage2.jpg" alt="After retrofit" loading="lazy">
+            <div class="slider" aria-label="Before and after slider" data-slider="before-after">
+                <!-- Images injected by script.js -->
                 <button class="prev" type="button" aria-label="Previous image">‹</button>
                 <button class="next" type="button" aria-label="Next image">›</button>
             </div>
+        </div>
+    </section>
+
+    <section id="work" class="section">
+        <div class="container">
+            <h2 class="section-title">Gallery</h2>
+            <p class="section-lead">View some of our recent projects.</p>
+
+            <div class="gallery-controls" aria-label="Gallery controls">
+                <button class="gallery-prev" type="button" aria-label="Previous page">‹ Prev</button>
+                <div class="gallery-status" aria-live="polite"></div>
+                <button class="gallery-next" type="button" aria-label="Next page">Next ›</button>
+            </div>
+
+            <div class="gallery-grid" id="galleryGrid" aria-label="Image gallery" role="region">
+
+                <!-- Images injected by script.js -->
+
+            </div>
+        </div>
+
+        <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
+            <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+            <img id="lightboxImg" alt="Expanded gallery image">
+            <div class="lightbox-caption" id="lightboxCaption"></div>
         </div>
     </section>
 
